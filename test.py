@@ -1,3 +1,2 @@
-import langchain
+from langchain_openai import ChatOpenAI
 
-print(langchain.__version__)
