@@ -14,12 +14,11 @@ TEMPLATE = PromptTemplate(
     template="""Give the answer of the following prompt {USER_INPUT} in less than 3 lines."""
 )
 
-PROMPT = TEMPLATE.invoke({
-    'USER_INPUT': USER_INPUT
-})
-
 st.title('Research Tool')
 
 if st.button("Run"):
-    RESULT = MODEL.invoke(PROMPT)
+    chain = TEMPLATE | MODEL 
+    RESULT = chain.invoke({
+    'USER_INPUT': USER_INPUT
+})
     st.write(RESULT.content)
