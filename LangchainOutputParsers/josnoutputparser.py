@@ -3,6 +3,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
+from pydantic import BaseModel, Field
 
 load_dotenv()
 
@@ -20,7 +21,11 @@ model = ChatOpenAI(
     model="gpt-5"
 )
 
-parser = JsonOutputParser()
+class Person(BaseModel):
+    name: str = Field(description="Fictional Person's name")
+    city: str = Field(description="Fictioinal person's city")
+
+parser = JsonOutputParser(pydantic_object=Person)
 
 template = PromptTemplate(
     template='Give me the name, age and city of a fictional person \n {format_instructions}',
@@ -28,10 +33,6 @@ template = PromptTemplate(
     partial_variables={'format_instructions': parser.get_format_instructions()}
 )
 
-prompt = template.format()
-
-result = model.invoke(prompt)
-
-final_result = parser.parse(result.content)
-
-print(final_result)
+chain = template | model | parser
+result = chain.invoke({})
+print(result)
