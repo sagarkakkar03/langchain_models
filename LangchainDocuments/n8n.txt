@@ -1,0 +1,7 @@
+- n8n is a source-available, visual low-code automation platform that connects apps, APIs, and databases, with optional custom JavaScript.
+- Workflows are node-based (triggers, actions, logic, transforms), pass JSON data, support expressions/Function nodes, encrypted credentials, retries, and sub-workflows.
+- Integrations include hundreds of app nodes, generic HTTP/GraphQL/SQL/email/S3/FTP connectors, AI nodes, and extensibility via custom TypeScript nodes; it also offers a REST API, CLI, and workflow import/export (Git in some editions).
+- Deploy self-hosted or on n8n Cloud; use SQLite locally and Postgres in production; scale via queue/worker mode with Redis; supports env vars, secrets, and observability.
+- Security/governance: encrypted creds, RBAC (with advanced RBAC/SSO/audit in paid tiers); community edition under a Sustainable Use License; commercial plans add enterprise features.
+- Common uses: SaaS/database sync, marketing/sales/DevOps/support automations, webhook-driven workflows, LLM tasks, and internal/back-office orchestration.
+- Compared to pure no-code tools, n8n is more flexible and developer-friendly but has a slightly steeper learning curve.
