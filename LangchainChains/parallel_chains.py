@@ -12,7 +12,7 @@ llm = HuggingFaceEndpoint(model="zai-org/GLM-4.7-Flash", huggingfacehub_api_toke
 
 model_openai = ChatOpenAI(model="gpt-5")
 model_glm = ChatHuggingFace(llm=llm)
-
+ 
 prompt1 = PromptTemplate(
     template="Create notes about the {topic}",
     input_variables=["topic"]
